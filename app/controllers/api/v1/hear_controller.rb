@@ -10,7 +10,9 @@ module Api
       end
 
       def bot
-        p params
+        request = ::Lines::Request.create(params[:events])
+        logger.info request.to_json
+        p request
         render json: { test: true }, status: 200
       end
     end
