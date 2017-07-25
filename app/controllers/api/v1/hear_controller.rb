@@ -10,7 +10,7 @@ module Api
       end
 
       def bot
-
+        render json: { test: true }, status: 200
       end
     end
   end
