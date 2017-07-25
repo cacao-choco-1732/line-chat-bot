@@ -8,6 +8,10 @@ module Api
       def show
 
       end
+
+      def bot
+
+      end
     end
   end
 end
