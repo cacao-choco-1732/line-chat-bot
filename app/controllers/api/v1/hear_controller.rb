@@ -10,6 +10,8 @@ module Api
       end
 
       def bot
+        p params
+        p params[:events]
         request = ::Lines::Request.create(params[:events])
         logger.info request.to_json
         p request
