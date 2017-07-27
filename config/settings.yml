@@ -1,0 +1,5 @@
+line:
+  access_token: GB43yLZ5imQpcvs6qajuMoxsEFvzpbNXROisv+FIcT3cQh9Y/VGARm+ZqG0A9gR+ASBcztCSTOmtQODegrPoBQZ0apX4PQRABqFY0DlrLqh3YEBMmThykPf0DzrA9d+FOYeVOABIPjvypAIqVoEIdwdB04t89/1O/w1cDnyilFU=
+  api: https://api.line.me/v2/bot/message/
+  reply: reply
+  push: push

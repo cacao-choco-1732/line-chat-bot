@@ -28,6 +28,8 @@ gem 'puma', '~> 3.7'
 gem 'unicorn'
 gem 'dotenv-rails'
 gem 'virtus'
+gem 'config'
+gem 'faraday'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,6 +41,10 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-safe-deploy-to'
   gem 'capistrano3-unicorn'
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
