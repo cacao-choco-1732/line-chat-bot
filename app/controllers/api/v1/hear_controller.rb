@@ -25,8 +25,9 @@ module Api
           message = request.message
           service = WunderGrounds::GeoLookupToCondition.new(message.latitude, message.longitude)
           condition = service.execute
-
-          text = condition.current_observation.weather
+          logger.info condition.to_json
+          text = 'Hello'
+          # text = condition.current_observation.weather
         end
 
         body = {
