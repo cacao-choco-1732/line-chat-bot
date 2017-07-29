@@ -17,21 +17,22 @@ module Api
         logger.info @line_request.to_json
 
         request = @line_request.events.first
-        if request.message?
-          message = 'Hello'
+        if request.text?
+          text = 'Hello'
         end
 
         if request.location?
-          service = WunderGrounds::GeoLookupToCondition.new(request.latitude, request.longitude)
+          message = request.message
+          service = WunderGrounds::GeoLookupToCondition.new(message.latitude, message.longitude)
           condition = service.execute
 
-          message = condition.current_observation.weather
+          text = condition.current_observation.weather
         end
 
         body = {
           replyToken: request.replyToken,
           messages: [
-            { type: 'text', text: message }
+            { type: 'text', text: text }
           ]
         }
 
