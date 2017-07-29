@@ -14,9 +14,9 @@ module Api
       def bot
         @line_request = ::Lines::Request.new(params.to_unsafe_h)
 
-        logger.info @line_request.to_json
-
         request = @line_request.events.first
+        logger.info request.to_json
+        logger.info request.message.to_json
         if request.text?
           text = 'Hello'
         end
