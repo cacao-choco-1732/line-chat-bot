@@ -30,6 +30,7 @@ gem 'dotenv-rails'
 gem 'virtus'
 gem 'config'
 gem 'faraday'
+gem 'dotenv'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

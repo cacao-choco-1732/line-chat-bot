@@ -3,3 +3,6 @@ line:
   api: https://api.line.me/v2/bot/message/
   reply: reply
   push: push
+wunder_grounds:
+  api: http://api.wunderground.com/api
+  token: <%= ENV["WUNDER_GROUNDS_API_KEY"] %>

@@ -213,6 +213,7 @@ DEPENDENCIES
   capistrano-safe-deploy-to
   capistrano3-unicorn
   config
+  dotenv
   dotenv-rails
   factory_girl_rails
   faraday
