@@ -7,16 +7,14 @@ module Lines
     attribute :replyToken, String
     attribute :source, Hash
     attribute :timestamp, Integer
-    attribute :message, Hash
-    attribute :latitude, String
-    attribute :longitude, String
+    attribute :message, Message
 
-    def message?
-      type == 'message'
+    def text?
+      message.type == 'text'
     end
 
     def location?
-      type == 'location'
+      message.type == 'location'
     end
   end
 end
