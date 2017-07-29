@@ -15,6 +15,7 @@ module Api
         @line_request = ::Lines::Request.new(params.to_unsafe_h)
 
         request = @line_request.events.first
+        logger.info ENV['WUNDER_GROUNDS_API_KEY']
         logger.info request.to_json
         logger.info request.message.to_json
         if request.text?
@@ -25,9 +26,8 @@ module Api
           message = request.message
           service = WunderGrounds::GeoLookupToCondition.new(message.latitude, message.longitude)
           condition = service.execute
-          logger.info condition.to_json
-          text = 'Hello'
-          # text = condition.current_observation.weather
+
+          text = condition.current_observation.weather
         end
 
         body = {

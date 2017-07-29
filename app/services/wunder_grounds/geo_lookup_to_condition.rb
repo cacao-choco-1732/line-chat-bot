@@ -10,8 +10,7 @@ module WunderGrounds
 
     # @return [WunderGrounds::Condition] 検索結果
     def execute
-      search_location
-      # condition(search_location.location.city)
+      condition(search_location.location.city)
     end
 
     private
