@@ -2,7 +2,9 @@ module Api
   module V1
     class HearController < ApplicationController
       def index
-        render json: { test: true }
+
+        # p WunderGrounds::Condition.new(JSON.parse(client.condition('Sagamihara')))
+        render json: { test: true }, status: 200
       end
 
       def show
@@ -14,10 +16,22 @@ module Api
 
         logger.info @line_request.to_json
 
+        request = @line_request.events.first
+        if request.message?
+          message = 'Hello'
+        end
+
+        if request.location?
+          service = WunderGrounds::GeoLookupToCondition.new(request.latitude, request.longitude)
+          condition = service.execute
+
+          message = condition.current_observation.weather
+        end
+
         body = {
-          replyToken: @line_request.events.first.replyToken,
+          replyToken: request.replyToken,
           messages: [
-            { type: 'text', text: 'Hello' }
+            { type: 'text', text: message }
           ]
         }
 
